@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,7 +34,7 @@ Route::post('/verify', [EmailVerification::class, 'verify'])->name('verify');
 
 Route::middleware(['guest'])->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('login');
-    Route::get('register', [RegisterController::class, 'index'])->name('register');
+    Route::get('signup', [RegisterController::class, 'index'])->name('register');
 
     Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
     Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
@@ -53,4 +54,6 @@ Route::middleware(['auth', 'verify'])->group(function () {
     Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('backend.dashboard');
     Route::get('admin/users', [UserController::class, 'index'])->name('users.index');
     Route::resource('admin/setup/roles', RoleController::class);
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('frontend.profile');
 });

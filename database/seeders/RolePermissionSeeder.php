@@ -58,6 +58,22 @@ class RolePermissionSeeder extends Seeder
                 'prefix' => 'dashboard',
                 'name' => 'analysis dashboard'
             ],
+            [
+                'prefix' => 'header',
+                'name' => 'view search'
+            ],
+            [
+                'prefix' => 'header',
+                'name' => 'view apps'
+            ],
+            [
+                'prefix' => 'header',
+                'name' => 'view notification'
+            ],
+            [
+                'prefix' => 'header',
+                'name' => 'view navbar'
+            ],
         ];
         foreach ($permissions as $item) {
             Permission::create($item);

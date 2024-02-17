@@ -56,17 +56,6 @@
             </div>
 
             <div class="mb-3">
-                <label for="phone" class="form-label">Phone <span class="text-danger">*</span></label>
-                <input type="text" class="form-control @error('phone') border-danger text-danger @enderror" wire:model.live="phone" name="phone" id="phone" placeholder="Enter phone" value="{{ old('phone') }}" >
-                <div class="invalid-feedback">
-                    Please enter phone
-                </div>
-                @error('phone')
-                    <span class="text-danger"><small>{{ $message }}</small></span>
-                @enderror
-            </div>
-
-            <div class="mb-3">
                 <label class="form-label" for="password-input">Password</label>
                 <div class="position-relative auth-pass-inputgroup mb-3">
                     <input type="password" wire:model.live="password" class="form-control pe-5 password-input @error('password') border-danger @enderror" name="password" placeholder="Enter password" id="password-input" value="{{ old('password') }}">

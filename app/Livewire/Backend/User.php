@@ -144,12 +144,10 @@ class User extends Component
 
         if ($this->role_id == null) {
             $data['users'] = $query
-                ->where('fname', 'like', "%{$this->search}%")
                 ->where('email', 'like', "%{$this->search}%")
                 ->paginate($this->size);
         } else {
             $data['users'] = $query
-                ->where('fname', 'like', "%{$this->search}%")
                 ->where('email', 'like', "%{$this->search}%")
                 ->where('role_id', '=', "$this->role_id")
                 ->paginate($this->size);

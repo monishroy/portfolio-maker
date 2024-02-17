@@ -25,14 +25,13 @@
 
 <body>
 
-    <div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
-        <div class="bg-overlay"></div>
+    <div class="auth-page-wrapper py-5 d-flex justify-content-center align-items-center min-vh-100">
         <!-- auth-page content -->
         <div class="auth-page-content overflow-hidden pt-lg-5">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="card overflow-hidden card-bg-fill border-0 card-border-effect-none">
+                        <div class="card overflow-hidden shadow-lg card-bg-fill border-0 card-border-effect-none">
                             <div class="row justify-content-center g-0">
                                 <div class="col-lg-6">
                                     <div class="d-inline-block d-md-none"></div> 

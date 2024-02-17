@@ -31,6 +31,7 @@
                     </span>
                 </button>
 
+                @can('view search')
                 <!-- App Search-->
                 <form class="app-search d-none d-md-block">
                     <div class="position-relative">
@@ -115,10 +116,12 @@
                         </div>
                     </div>
                 </form>
+                @endcan
             </div>
 
             <div class="d-flex align-items-center">
 
+                @can('view search')
                 <div class="dropdown d-md-none topbar-head-dropdown header-item">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="bx bx-search fs-22"></i>
@@ -134,7 +137,9 @@
                         </form>
                     </div>
                 </div>
+                @endcan
                 
+                @can('view apps')
                 <div class="dropdown topbar-head-dropdown ms-1 header-item">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class='bx bx-category-alt fs-22'></i>
@@ -197,13 +202,15 @@
                         </div>
                     </div>
                 </div>
-                
+                @endcan
+
                 <div class="ms-1 header-item d-none d-sm-flex">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode">
                         <i class='bx bx-moon fs-22'></i>
                     </button>
                 </div>
-                {{-- Notification --}}
+
+                @can('view notification')
                 <div class="dropdown topbar-head-dropdown ms-1 header-item" id="notificationDropdown">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
                         <i class='bx bx-bell fs-22'></i>
@@ -465,7 +472,8 @@
                         </div>
                     </div>
                 </div>
-                {{-- Notification --}}
+                @endcan
+                
                 <div class="dropdown ms-sm-3 header-item topbar-user">
                     <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="d-flex align-items-center">
@@ -481,7 +489,9 @@
                             <span class="text-start ms-xl-2">
                                 <span class="d-none d-xl-inline-block ms-1 fw-semibold user-name-text">{{ Auth::user()->fname.' '.Auth::user()->lname }}</span>
                                 <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">
-                                    backend
+                                    @foreach (Auth::user()->roles as $role)
+                                        <span class="badge bg-primary-subtle text-primary text-uppercase">{{ $role->name }}</span>
+                                    @endforeach
                                </span>
                             </span>
                         </span>

@@ -15,11 +15,10 @@ class Register extends Component
         'first_name' => 'required',
         'last_name' => 'required',
         'email' => ['required', 'lowercase', 'email:filter', 'max:255', 'unique:users,email'],
-        'phone' => ['required', 'numeric', 'digits:11', 'unique:users,phone'],
         'password' => ['required', 'min:6'],
     ])]
 
-    public $first_name, $last_name, $email, $phone, $password;
+    public $first_name, $last_name, $email, $password;
 
     public function register()
     {
@@ -27,7 +26,6 @@ class Register extends Component
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|lowercase|email:filter|unique:users,email',
-            'phone' => 'required|numeric|digits:11|unique:users,phone',
             'password' => 'required|min:6',
         ]);
 
@@ -36,27 +34,25 @@ class Register extends Component
             'fname' => $this->first_name,
             'lname' => $this->last_name,
             'email' => $this->email,
-            'phone' => $this->phone,
             'role_id' => '2',
             'password' => Hash::make($this->password),
         ]);
 
         $role = ModelsRole::find(2);
-        $role->syncPermissions(Permission::all());
         $user->assignRole($role);
 
         $this->resetInput();
 
-        if($user){
-            return redirect("/send-mail/".$user->id);
-        }else{
-            session()->flash('error','Something is Worng!');
+        if ($user) {
+            return redirect("/send-mail/" . $user->id);
+        } else {
+            session()->flash('error', 'Something is Worng!');
         }
     }
 
     public function resetInput()
     {
-        $this->reset(['first_name','last_name','email','phone','password']);
+        $this->reset(['first_name', 'last_name', 'email', 'password']);
     }
 
     public function render()
