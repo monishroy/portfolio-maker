@@ -50,7 +50,8 @@
                 </div>
 
                 <div class="mt-4">
-                    <button class="btn btn-primary w-100" type="submit"><i wire:loading wire:target="login" class="mdi mdi-loading mdi-spin align-middle me-2"></i>Sign In</button>
+                    <button class="btn btn-primary w-100" type="submit">
+                        <i wire:loading wire:target="login" class="mdi mdi-loading mdi-spin align-middle me-2"></i>Sign In</button>
                 </div>
 
                 <div class="mt-4 text-center">
