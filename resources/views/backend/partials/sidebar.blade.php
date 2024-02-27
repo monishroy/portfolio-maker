@@ -32,20 +32,26 @@
             </div>
         </li> 
         @endcanany
+        @canany(['view template','add template'])
         <li class="nav-item">
             <a class="nav-link menu-link" href="#template" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="template">
-                <i class="ri-pencil-ruler-2-line"></i> <span data-key="t-layouts">Template</span>
+                <i class="ri-dashboard-line"></i> <span data-key="t-layouts">Template</span>
             </a>
-            <div class="collapse menu-dropdown {{ Request::is(['admin/setup*']) ? 'show':''}}" id="template">
+            <div class="collapse menu-dropdown {{ Request::is(['admin/templates*']) ? 'show':''}}" id="template">
                 <ul class="nav nav-sm flex-column">
+                    @can('add template')
                     <li class="nav-item">
                         <a href="{{ route('templates.create') }}"class="nav-link {{ Request::routeIs(['templates.create']) ? 'active':''}}" data-key="t-two-column">Create Template</a>
                     </li>
+                    @endcan
+                    @can('view template')
                     <li class="nav-item">
                         <a href="{{ route('templates.index') }}"class="nav-link {{ Request::routeIs(['templates.index']) ? 'active':''}}" data-key="t-two-column">Templates</a>
                     </li>
+                    @endcan
                 </ul>
             </div>
         </li>
+        @endcanany
     </ul>
 </div>

@@ -28,7 +28,6 @@
                         @can('add role')
                             <a href="{{ route('roles.create') }}" class="btn btn-primary add-btn"><i class="ri-add-line align-bottom me-1"></i> Create Role</a>
                         @endcan
-                        <button type="button" class="btn btn-secondary"><i class="ri-save-3-line align-bottom me-1"></i> Export</button>
                     </div>
                 </div>
             </div>
@@ -68,8 +67,8 @@
                                         </a>
                                     @endcan
                                     @can('delete role')
-                                        <button class="btn btn-sm btn-soft-danger" wire:click="delete({{$role->id}})" data-bs-toggle="modal"  data-bs-target="#deleteModel"  data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
-                                            <i class="bx bx-trash align-bottom"></i>
+                                        <button class="btn btn-sm btn-soft-danger" wire:click="delete({{$role->id}})" data-bs-toggle="modal"  data-bs-target="#deleteModal"  data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                                            <i class="ri-delete-bin-6-line align-bottom"></i>
                                         </button>
                                     @endcan
                                 </div>
@@ -78,7 +77,7 @@
                         
                         <!-- Default Modals -->
                         <div id="permission-{{ $role->id }}" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="myModalLabel">Permission</h5>
@@ -88,8 +87,8 @@
                                     <div class="modal-body">
                                         <div class="row g-2">
                                             @foreach ($role->permissions as $item)
-                                            <div class="col-4">
-                                                <span class="badge bg-primary-subtle fs-6 text-primary badge-border">{{ $item->name }}</span>
+                                            <div class="col-3">
+                                                <span class="badge bg-primary-subtle fs-6 text-primary badge-border w-100">{{ $item->name }}</span>
                                             </div>
                                             @endforeach
                                         </div>

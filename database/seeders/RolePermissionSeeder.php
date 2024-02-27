@@ -70,6 +70,22 @@ class RolePermissionSeeder extends Seeder
                 'prefix' => 'header',
                 'name' => 'view navbar'
             ],
+            [
+                'prefix' => 'template',
+                'name' => 'view template'
+            ],
+            [
+                'prefix' => 'template',
+                'name' => 'add template'
+            ],
+            [
+                'prefix' => 'template',
+                'name' => 'edit template'
+            ],
+            [
+                'prefix' => 'template',
+                'name' => 'delete template'
+            ],
         ];
         foreach ($permissions as $item) {
             Permission::create($item);
@@ -79,5 +95,8 @@ class RolePermissionSeeder extends Seeder
         $user = User::first();
         $user->assignRole($role);
         Role::create(['name' => 'user']);
+
+        $user = User::find(2);
+        $user->assignRole(2);
     }
 }

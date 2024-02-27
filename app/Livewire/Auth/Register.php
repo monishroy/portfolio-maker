@@ -29,11 +29,14 @@ class Register extends Component
             'password' => 'required|min:6',
         ]);
 
+        $username = strtolower($this->first_name) . rand(1111, 9999);
+
         //User Store
         $user = ModelsUser::create([
             'fname' => $this->first_name,
             'lname' => $this->last_name,
             'email' => $this->email,
+            'username' => $username,
             'role_id' => '2',
             'password' => Hash::make($this->password),
         ]);

@@ -19,7 +19,18 @@ class UserSeeder extends Seeder
             'fname' => 'Monish',
             'lname' => 'Roy',
             'email' => 'superadmin@gmail.com',
+            'username' => 'superadmin',
             'role_id' => '1',
+            'is_verified' => '1',
+            'password' => Hash::make('123456'),
+        ]);
+
+        User::create([
+            'fname' => 'Monish',
+            'lname' => 'Roy',
+            'email' => 'roymonish712@gmail.com',
+            'username' => 'monishroy',
+            'role_id' => '2',
             'is_verified' => '1',
             'password' => Hash::make('123456'),
         ]);

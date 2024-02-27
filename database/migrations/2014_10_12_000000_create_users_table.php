@@ -16,9 +16,14 @@ return new class extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('email')->unique();
+            $table->string('username')->unique();
             $table->string('image')->nullable();
+            $table->string('designation')->nullable();
+            $table->text('bio')->nullable();
+            $table->string('template_id')->nullable();
             $table->unsignedBigInteger('role_id')->default(2);
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('phone')->nullable();
             $table->string('password')->nullable();
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();

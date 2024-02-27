@@ -3,95 +3,9 @@
 @section('title', 'Profile')
 @section('content')
 
-<div class="row mt-5">
-    <div class="col-xxl-3">
-        <div class="card mt-n5">
-            <div class="card-body p-4">
-                <div class="text-center">
-                    <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                        <img src="{{ asset('backend/assets/images/users/avatar-1.jpg') }}" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image">
-                        <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
-                            <input id="profile-img-file-input" type="file" class="profile-img-file-input">
-                            <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
-                                <span class="avatar-title rounded-circle bg-light text-body">
-                                    <i class="ri-camera-fill"></i>
-                                </span>
-                            </label>
-                        </div>
-                    </div>
-                    <h5 class="fs-16 mb-1">{{ Auth::user()->fname.' '.Auth::user()->lname }}</h5>
-                    <p class="text-muted mb-0" id="getup"></p>
-                </div>
-            </div>
-        </div>
-        <!--end card-->
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex align-items-center mb-5">
-                    <div class="flex-grow-1">
-                        <h5 class="card-title mb-0">Complete Your Profile</h5>
-                    </div>
-                    <div class="flex-shrink-0">
-                        <a href="javascript:void(0);" class="fs-5 text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Min 80% complete profile then active your portfolio"><i class="ri-information-line align-bottom me-1"></i></a>
-                    </div>
-                </div>
-                <div class="progress animated-progress custom-progress progress-label">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
-                        <div class="label">30%</div>
-                    </div>
-                </div>
-                <button type="button" class="btn btn-soft-primary waves-effect waves-light mt-3 w-100">Active</button>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex align-items-center mb-4">
-                    <div class="flex-grow-1">
-                        <h5 class="card-title mb-0">Social Media</h5>
-                    </div>
-                    <div class="flex-shrink-0">
-                        <a href="javascript:void(0);" class="badge bg-light text-secondary fs-12"><i class="ri-add-fill align-bottom me-1"></i> Add</a>
-                    </div>
-                </div>
-                <div class="mb-3 d-flex">
-                    <div class="avatar-xs d-block flex-shrink-0 me-3">
-                        <span class="avatar-title rounded-circle fs-16 bg-primary-subtle text-primary">
-                            <i class="ri-facebook-fill"></i>
-                        </span>
-                    </div>
-                    <input type="text" class="form-control" id="dribbleName" placeholder="@monishroy010">
-                </div>
-                <div class="mb-3 d-flex">
-                    <div class="avatar-xs d-block flex-shrink-0 me-3">
-                        <span class="avatar-title rounded-circle fs-16 bg-info-subtle text-info">
-                            <i class="ri-global-fill"></i>
-                        </span>
-                    </div>
-                    <input type="text" class="form-control" id="websiteInput" placeholder="www.monishroy.com">
-                </div>
-                <div class="mb-3 d-flex">
-                    <div class="avatar-xs d-block flex-shrink-0 me-3">
-                        <span class="avatar-title rounded-circle fs-16 bg-dark bg-opacity-25 text-dark">
-                            <i class="ri-github-fill"></i>
-                        </span>
-                    </div>
-                    <input type="email" class="form-control" id="gitUsername" placeholder="@monishroy">
-                </div>
-                <div class="d-flex">
-                    <div class="avatar-xs d-block flex-shrink-0 me-3">
-                        <span class="avatar-title rounded-circle fs-16 bg-danger-subtle text-danger">
-                            <i class="ri-instagram-fill"></i>
-                        </span>
-                    </div>
-                    <input type="text" class="form-control" id="pinterestName" placeholder="@monishroy010">
-                </div>
-            </div>
-        </div>
-        <!--end card-->
-    </div>
-    <!--end col-->
+<div class="row ">
     <div class="col-xxl-9">
-        <div class="card mt-xxl-n5">
+        <div class="card">
             <div class="card-header">
                 <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
                     <li class="nav-item">
@@ -101,15 +15,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#experience" role="tab">
-                            <i class="far fa-envelope"></i>
-                            Experience
+                        <a class="nav-link" data-bs-toggle="tab" href="#changePassword" role="tab">
+                            <i class="far fa-user"></i>
+                            Image
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#changePassword" role="tab">
-                            <i class="far fa-user"></i>
-                            Contact Information
+                        <a class="nav-link" data-bs-toggle="tab" href="#experience" role="tab">
+                            <i class="far fa-envelope"></i>
+                            Experience
                         </a>
                     </li>
                     <li class="nav-item">
@@ -145,7 +59,7 @@
                                     <div class="mb-3">
                                         <label for="phonenumberInput" class="form-label">Phone
                                             Number</label>
-                                        <input type="text" class="form-control" id="phonenumberInput" placeholder="Enter your phone number">
+                                        <input type="text" name="phone" class="form-control" id="phonenumberInput" placeholder="Enter your phone number" value="{{ Auth::user()->phone }}">
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -159,44 +73,20 @@
                                 <!--end col-->
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <label for="designationInput" class="form-label">Designation</label>
-                                        <input type="text" class="form-control" id="designationInput" placeholder="Designation" value="Lead Designer / Developer">
+                                        <label for="designationInput" class="form-label">Username</label>
+                                        <input type="text" name="username" class="form-control" id="designationInput" placeholder="Username" value="{{ Auth::user()->username }}">
                                     </div>
                                 </div>
-                                <!--end col-->
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <label for="websiteInput1" class="form-label">Website</label>
-                                        <input type="text" class="form-control" id="websiteInput1" placeholder="www.example.com" value="www.velzon.com" />
+                                        <label for="designationInput" class="form-label">Designation</label>
+                                        <input type="text" name="designation" class="form-control" id="designationInput" placeholder="Web Designer / Developer" value="{{ Auth::user()->designation }}">
                                     </div>
                                 </div>
-                                <!--end col-->
-                                <div class="col-lg-4">
-                                    <div class="mb-3">
-                                        <label for="cityInput" class="form-label">City</label>
-                                        <input type="text" class="form-control" id="cityInput" placeholder="City" value="California" />
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-4">
-                                    <div class="mb-3">
-                                        <label for="countryInput" class="form-label">Country</label>
-                                        <input type="text" class="form-control" id="countryInput" placeholder="Country" value="United States" />
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-4">
-                                    <div class="mb-3">
-                                        <label for="zipcodeInput" class="form-label">Zip
-                                            Code</label>
-                                        <input type="text" class="form-control" minlength="5" maxlength="6" id="zipcodeInput" placeholder="Enter zipcode" value="90011">
-                                    </div>
-                                </div>
-                                <!--end col-->
                                 <div class="col-lg-12">
                                     <div class="mb-3 pb-2">
-                                        <label for="exampleFormControlTextarea" class="form-label">Description</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea" placeholder="Enter your description" rows="3">Hi I'm Anna Adame,It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is European languages are members of the same family.</textarea>
+                                        <label for="exampleFormControlTextarea" class="form-label">Bio</label>
+                                        <textarea class="form-control" name="bio" id="exampleFormControlTextarea" placeholder="Enter your bio" rows="3">{{ Auth::user()->bio }}</textarea>
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -515,6 +405,73 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!--end col-->
+    <div class="col-xxl-3">
+        <!--end card-->
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-5">
+                    <div class="flex-grow-1">
+                        <h5 class="card-title mb-0">Complete Your Profile</h5>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <a href="javascript:void(0);" class="fs-5 text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Min 80% complete profile then active your portfolio"><i class="ri-information-line align-bottom me-1"></i></a>
+                    </div>
+                </div>
+                <div class="progress animated-progress custom-progress progress-label">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+                        <div class="label">30%</div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-soft-primary waves-effect waves-light mt-3 w-100">Active</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="flex-grow-1">
+                        <h5 class="card-title mb-0">Social Media</h5>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <a href="javascript:void(0);" class="badge bg-light text-secondary fs-12"><i class="ri-add-fill align-bottom me-1"></i> Add</a>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex">
+                    <div class="avatar-xs d-block flex-shrink-0 me-3">
+                        <span class="avatar-title rounded-circle fs-16 bg-primary-subtle text-primary">
+                            <i class="ri-facebook-fill"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" id="dribbleName" placeholder="@monishroy010">
+                </div>
+                <div class="mb-3 d-flex">
+                    <div class="avatar-xs d-block flex-shrink-0 me-3">
+                        <span class="avatar-title rounded-circle fs-16 bg-info-subtle text-info">
+                            <i class="ri-global-fill"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" id="websiteInput" placeholder="www.monishroy.com">
+                </div>
+                <div class="mb-3 d-flex">
+                    <div class="avatar-xs d-block flex-shrink-0 me-3">
+                        <span class="avatar-title rounded-circle fs-16 bg-dark bg-opacity-25 text-dark">
+                            <i class="ri-github-fill"></i>
+                        </span>
+                    </div>
+                    <input type="email" class="form-control" id="gitUsername" placeholder="@monishroy">
+                </div>
+                <div class="d-flex">
+                    <div class="avatar-xs d-block flex-shrink-0 me-3">
+                        <span class="avatar-title rounded-circle fs-16 bg-danger-subtle text-danger">
+                            <i class="ri-instagram-fill"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" id="pinterestName" placeholder="@monishroy010">
+                </div>
+            </div>
+        </div>
+        <!--end card-->
     </div>
     <!--end col-->
 </div>

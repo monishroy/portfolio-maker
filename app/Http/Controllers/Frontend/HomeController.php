@@ -11,4 +11,10 @@ class HomeController extends Controller
     {
         return view('frontend.index');
     }
+
+    public function portfolio($username)
+    {
+
+        return view();
+    }
 }

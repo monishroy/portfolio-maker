@@ -13,18 +13,18 @@
                     </div>
                     <div class="col-sm-auto">
                         <div class="d-flex flex-wrap align-items-start gap-2">
-                            <a href="{{ route('roles.index') }}" class="btn btn-primary add-btn"><i class="ri-file-list-2-line align-bottom me-1"></i>  Role List</a>
+                            <a href="{{ route('roles.index') }}" class="btn btn-primary add-btn"><i class="ri-file-list-2-line align-bottom me-1"></i> Role List</a>
                         </div>
                     </div>
                 </div>
             </div>
-
+           
             <div class="card-body">
-                <form class="row g-3 needs-validation" action="{{ route('roles.update', $role->id) }}" method="POST" novalidate>
+                <form class="row needs-validation" action="{{ route('roles.update', $role->id) }}" method="POST" novalidate>
                     @csrf
                     @method('PUT')
-                    <div class="col-md-12 mb-4">
-                        <div class="col-md-4 mx-auto">
+                    <div class="col-md-3 mb-4">
+                        <div class="sticky-side-div">
                             <label for="rolename" class="form-label">Role name</label>
                             <input type="text" class="form-control" name="role_name" id="rolename" placeholder="Role Name" value="{{ old('role_name', $role->name) }}" required>
                             <div class="invalid-feedback">
@@ -33,33 +33,35 @@
                             @error('role_name')
                                 <span class="text-danger"><small>{{ $message }}</small></span>
                             @enderror
-                        </div>
-                    </div>
-                    <div class="row ms-1" data-masonry='{"percentPosition": true }'>
-                        @foreach ($groupedPermissions->chunk(1) as $chunks)
-                        <div class="col-md-3">
-                            <div class="card shadow-lg">
-                                @foreach ($chunks as $prefix => $permissions)
-                                    <span class="p-3">
-                                        <label class="fs-18 float-start" for="">{{ ucwords($prefix) }}</label>
-                                        <label class="float-end fs-15" for="prefix-checkbox-{{ $prefix }}">Select All</label>
-                                        <input type="checkbox" class="prefix-checkbox form-check-input mt-1 me-2 float-end" id="prefix-checkbox-{{$prefix }}" role="switch" data-prefix="{{ $prefix }}">
-                                    </span>
-                                    <ul>
-                                    @foreach($permissions as $permission)
-                                        <div>
-                                            <input type="checkbox" name="permissions[]" @php if($role->hasPermissionTo($permission->name)) echo 'checked'; @endphp id="permission-checkbox-{{ $permission->id }}" value="{{ $permission->id }}" class="form-check-input permission-checkbox">
-                                            <label for="permission-checkbox-{{ $permission->id }}">{{ $permission->name }}</label>
-                                        </div>
-                                    @endforeach
-                                    </ul>
-                                @endforeach
+                            <div class="mt-3">
+                                <button class="btn btn-primary w-100" type="submit">Update Role</button>
                             </div>
                         </div>
-                        @endforeach
-                    </div> 
-                    <div class="col-12">
-                        <button class="btn btn-primary" type="submit">Role Update</button>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row" data-masonry='{"percentPosition": true }'>
+                            @foreach ($groupedPermissions->chunk(1) as $chunks)
+                            <div class="col-md-4">
+                                <div class="card bg-light">
+                                    @foreach ($chunks as $prefix => $permissions)
+                                        <span class="p-3">
+                                            <label class="fs-18 float-start" for="">{{ ucwords($prefix) }}</label>
+                                            <label class="float-end fs-15" for="prefix-checkbox-{{ $prefix }}">Select All</label>
+                                            <input type="checkbox" class="prefix-checkbox form-check-input mt-1 me-2 float-end" id="prefix-checkbox-{{$prefix }}" role="switch" data-prefix="{{ $prefix }}">
+                                        </span>
+                                        <ul>
+                                        @foreach($permissions as $permission)
+                                            <div>
+                                                <input type="checkbox" name="permissions[]" @php if($role->hasPermissionTo($permission->name)) echo 'checked'; @endphp id="permission-checkbox-{{ $permission->id }}" value="{{ $permission->id }}" class="form-check-input permission-checkbox">
+                                                <label for="permission-checkbox-{{ $permission->id }}">{{ $permission->name }}</label>
+                                            </div>
+                                        @endforeach
+                                        </ul>
+                                    @endforeach
+                                </div>
+                            </div>
+                            @endforeach
+                        </div> 
                     </div>
                 </form>
             </div>
@@ -69,7 +71,14 @@
     <!--end col-->
 </div>
 <!--end row-->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+@endsection
+@push('js')
+    <!-- Masonry plugin -->
+    <script src="{{ url('backend/assets/libs/masonry-layout/masonry.pkgd.min.js') }}"></script>
+    <!-- validation init -->
+    <script src="{{ url('backend/assets/js/pages/form-validation.init.js') }}"></script>
+    <script src="{{ url('backend/assets/js/jquery-3.6.0.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('.prefix-checkbox').on('click', function() {
@@ -100,4 +109,4 @@
             });
         });
     </script>
-@endsection
+@endpush

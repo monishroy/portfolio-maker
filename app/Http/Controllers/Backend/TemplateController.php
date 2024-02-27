@@ -80,7 +80,10 @@ class TemplateController extends Controller
      */
     public function edit(string $id)
     {
-        return view('backend.template.edit');
+        $data['template'] = Template::find($id);
+        $data['template_images'] = TemplateImage::where('template_id', $id)->get();
+
+        return view('backend.template.edit', $data);
     }
 
     /**
@@ -88,7 +91,42 @@ class TemplateController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'temp_name' => "required",
+            'temp_path' => "required",
+            'description' => "required",
+        ]);
+
+        $template = Template::find($id)->update([
+            'name' => $request->temp_name,
+            'slug' => Str::slug($request->temp_name),
+            'path' => $request->temp_path,
+            'description' => $request->description,
+        ]);
+
+        $result = 1;
+
+        if (!empty($request->images)) {
+            foreach ($request->images as $index => $value) {
+
+                $image = date('dmY') . time() . '-' . ++$index . "." . $value->getClientOriginalExtension();
+                $value->storeAs('public/templates/orginal', $image);
+                // Store marksheet and certificate files
+                $compressedImage = Image::make($value)->resize(1080, 720)->encode(); // Encode the image in the desired format (e.g., JPEG)
+                $compressedImage->save(storage_path('app/public/templates/' . $image));
+
+                $result = TemplateImage::create([
+                    'template_id' => $id,
+                    'name' => $image,
+                ]);
+            };
+        }
+
+        if ($result) {
+            return back()->with('success', 'Template Update Successfully!');
+        } else {
+            return back()->with('error', 'Something is Worng!');
+        }
     }
 
     /**
@@ -97,5 +135,24 @@ class TemplateController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function image_delete($id)
+    {
+        $template_image = TemplateImage::find($id);
+
+        $image = storage_path('app/public/templates/' . $template_image->name);
+        if (is_file($image)) {
+            unlink($image);
+        }
+
+        $image2 = storage_path('app/public/templates/orginal/' . $template_image->name);
+        if (is_file($image2)) {
+            unlink($image2);
+        }
+
+        $template_image->delete();
+
+        return back()->with('success', 'Template image delete successfully');
     }
 }

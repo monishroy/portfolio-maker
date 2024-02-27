@@ -12,9 +12,9 @@
                     <div class="card-footer bg-dark bg-opacity-50 d-flex justify-content-between">
                         <h4 class="card-title text-white mt-1">{{ Str::limit($template->name, 35, '...') }}</h4>
                         <div class="text-end">
-                            <button class="btn btn-sm btn-info me-2" data-bs-toggle="modal" data-bs-target="#edit" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                            <a href="{{ route('templates.edit', $template->id) }}" class="btn btn-sm btn-info me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                                 <i class="ri-pencil-fill align-bottom"></i>
-                            </button>
+                            </a>
                             <button class="btn btn-sm btn-danger" wire:click="delete({{ $template->id }})" data-bs-toggle="modal"  data-bs-target="#deleteModel"  data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
                                 <i class="bx bx-trash "></i>
                             </button>
