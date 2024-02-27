@@ -60,10 +60,6 @@ class RolePermissionSeeder extends Seeder
             ],
             [
                 'prefix' => 'header',
-                'name' => 'view search'
-            ],
-            [
-                'prefix' => 'header',
                 'name' => 'view apps'
             ],
             [

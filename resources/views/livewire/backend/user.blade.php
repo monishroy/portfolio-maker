@@ -222,7 +222,7 @@
                 </div>
             </div>
         </div>
-        <div class="card-body">
+        <div wire:poll.10s class="card-body">
             <div class="table-responsive">
                 <table class="table align-middle table-hover table-bordered">
                     <thead>

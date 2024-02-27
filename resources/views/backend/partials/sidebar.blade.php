@@ -32,5 +32,20 @@
             </div>
         </li> 
         @endcanany
+        <li class="nav-item">
+            <a class="nav-link menu-link" href="#template" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="template">
+                <i class="ri-pencil-ruler-2-line"></i> <span data-key="t-layouts">Template</span>
+            </a>
+            <div class="collapse menu-dropdown {{ Request::is(['admin/setup*']) ? 'show':''}}" id="template">
+                <ul class="nav nav-sm flex-column">
+                    <li class="nav-item">
+                        <a href="{{ route('templates.create') }}"class="nav-link {{ Request::routeIs(['templates.create']) ? 'active':''}}" data-key="t-two-column">Create Template</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('templates.index') }}"class="nav-link {{ Request::routeIs(['templates.index']) ? 'active':''}}" data-key="t-two-column">Templates</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
     </ul>
 </div>

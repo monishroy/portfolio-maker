@@ -3,7 +3,7 @@
 @section('title', 'Profile')
 @section('content')
 
-<div class="row">
+<div class="row mt-5">
     <div class="col-xxl-3">
         <div class="card mt-n5">
             <div class="card-body p-4">
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <h5 class="fs-16 mb-1">{{ Auth::user()->fname.' '.Auth::user()->lname }}</h5>
-                    <p class="text-muted mb-0">Lead Designer / Developer</p>
+                    <p class="text-muted mb-0" id="getup"></p>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
             <div class="card-body">
                 <div class="d-flex align-items-center mb-4">
                     <div class="flex-grow-1">
-                        <h5 class="card-title mb-0">Portfolio</h5>
+                        <h5 class="card-title mb-0">Social Media</h5>
                     </div>
                     <div class="flex-shrink-0">
                         <a href="javascript:void(0);" class="badge bg-light text-secondary fs-12"><i class="ri-add-fill align-bottom me-1"></i> Add</a>
@@ -55,35 +55,35 @@
                 </div>
                 <div class="mb-3 d-flex">
                     <div class="avatar-xs d-block flex-shrink-0 me-3">
-                        <span class="avatar-title rounded-circle fs-16 bg-body text-body">
-                            <i class="ri-github-fill"></i>
+                        <span class="avatar-title rounded-circle fs-16 bg-primary-subtle text-primary">
+                            <i class="ri-facebook-fill"></i>
                         </span>
                     </div>
-                    <input type="email" class="form-control" id="gitUsername" placeholder="Username" value="@daveadame">
+                    <input type="text" class="form-control" id="dribbleName" placeholder="@monishroy010">
                 </div>
                 <div class="mb-3 d-flex">
                     <div class="avatar-xs d-block flex-shrink-0 me-3">
-                        <span class="avatar-title rounded-circle fs-16 bg-primary-subtle text-primary">
+                        <span class="avatar-title rounded-circle fs-16 bg-info-subtle text-info">
                             <i class="ri-global-fill"></i>
                         </span>
                     </div>
-                    <input type="text" class="form-control" id="websiteInput" placeholder="www.example.com" value="www.velzon.com">
+                    <input type="text" class="form-control" id="websiteInput" placeholder="www.monishroy.com">
                 </div>
                 <div class="mb-3 d-flex">
                     <div class="avatar-xs d-block flex-shrink-0 me-3">
-                        <span class="avatar-title rounded-circle fs-16 bg-success-subtle text-success">
-                            <i class="ri-dribbble-fill"></i>
+                        <span class="avatar-title rounded-circle fs-16 bg-dark bg-opacity-25 text-dark">
+                            <i class="ri-github-fill"></i>
                         </span>
                     </div>
-                    <input type="text" class="form-control" id="dribbleName" placeholder="Username" value="@dave_adame">
+                    <input type="email" class="form-control" id="gitUsername" placeholder="@monishroy">
                 </div>
                 <div class="d-flex">
                     <div class="avatar-xs d-block flex-shrink-0 me-3">
                         <span class="avatar-title rounded-circle fs-16 bg-danger-subtle text-danger">
-                            <i class="ri-pinterest-fill"></i>
+                            <i class="ri-instagram-fill"></i>
                         </span>
                     </div>
-                    <input type="text" class="form-control" id="pinterestName" placeholder="Username" value="Advance Dave">
+                    <input type="text" class="form-control" id="pinterestName" placeholder="@monishroy010">
                 </div>
             </div>
         </div>
@@ -95,21 +95,21 @@
             <div class="card-header">
                 <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#basic-info" role="tab">
                             <i class="fas fa-home"></i>
-                            Personal Details
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#changePassword" role="tab">
-                            <i class="far fa-user"></i>
-                            Change Password
+                            Basic Info
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="tab" href="#experience" role="tab">
                             <i class="far fa-envelope"></i>
                             Experience
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#changePassword" role="tab">
+                            <i class="far fa-user"></i>
+                            Contact Information
                         </a>
                     </li>
                     <li class="nav-item">
@@ -122,14 +122,14 @@
             </div>
             <div class="card-body p-4">
                 <div class="tab-content">
-                    <div class="tab-pane active" id="personalDetails" role="tabpanel">
+                    <div class="tab-pane active" id="basic-info" role="tabpanel">
                         <form action="javascript:void(0);">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label for="firstnameInput" class="form-label">First
                                             Name</label>
-                                        <input type="text" class="form-control" id="firstnameInput" placeholder="Enter your firstname" value="Dave">
+                                        <input type="text" class="form-control" id="firstnameInput" placeholder="Enter your firstname" value="{{ Auth::user()->fname }}">
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -137,7 +137,7 @@
                                     <div class="mb-3">
                                         <label for="lastnameInput" class="form-label">Last
                                             Name</label>
-                                        <input type="text" class="form-control" id="lastnameInput" placeholder="Enter your lastname" value="Adame">
+                                        <input type="text" class="form-control" id="lastnameInput" placeholder="Enter your lastname" value="{{ Auth::user()->lname }}">
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -145,7 +145,7 @@
                                     <div class="mb-3">
                                         <label for="phonenumberInput" class="form-label">Phone
                                             Number</label>
-                                        <input type="text" class="form-control" id="phonenumberInput" placeholder="Enter your phone number" value="+(1) 987 6543">
+                                        <input type="text" class="form-control" id="phonenumberInput" placeholder="Enter your phone number">
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -153,30 +153,7 @@
                                     <div class="mb-3">
                                         <label for="emailInput" class="form-label">Email
                                             Address</label>
-                                        <input type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="daveadame@velzon.com">
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="JoiningdatInput" class="form-label">Joining
-                                            Date</label>
-                                        <input type="text" class="form-control" data-provider="flatpickr" id="JoiningdatInput" data-date-format="d M, Y" data-deafult-date="24 Nov, 2021" placeholder="Select date" />
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="skillsInput" class="form-label">Skills</label>
-                                        <select class="form-control" name="skillsInput" data-choices data-choices-text-unique-true multiple id="skillsInput">
-                                            <option value="illustrator">Illustrator</option>
-                                            <option value="photoshop">Photoshop</option>
-                                            <option value="css">CSS</option>
-                                            <option value="html">HTML</option>
-                                            <option value="javascript" selected>Javascript</option>
-                                            <option value="python">Python</option>
-                                            <option value="php">PHP</option>
-                                        </select>
+                                        <input type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="{{ Auth::user()->email }}">
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -233,118 +210,6 @@
                             </div>
                             <!--end row-->
                         </form>
-                    </div>
-                    <!--end tab-pane-->
-                    <div class="tab-pane" id="changePassword" role="tabpanel">
-                        <form action="javascript:void(0);">
-                            <div class="row g-2">
-                                <div class="col-lg-4">
-                                    <div>
-                                        <label for="oldpasswordInput" class="form-label">Old
-                                            Password*</label>
-                                        <input type="password" class="form-control" id="oldpasswordInput" placeholder="Enter current password">
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-4">
-                                    <div>
-                                        <label for="newpasswordInput" class="form-label">New
-                                            Password*</label>
-                                        <input type="password" class="form-control" id="newpasswordInput" placeholder="Enter new password">
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-4">
-                                    <div>
-                                        <label for="confirmpasswordInput" class="form-label">Confirm
-                                            Password*</label>
-                                        <input type="password" class="form-control" id="confirmpasswordInput" placeholder="Confirm password">
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <a href="javascript:void(0);" class="link-primary text-decoration-underline">Forgot
-                                            Password ?</a>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-12">
-                                    <div class="text-end">
-                                        <button type="submit" class="btn btn-primary">Change
-                                            Password</button>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                            </div>
-                            <!--end row-->
-                        </form>
-                        <div class="mt-4 mb-3 border-bottom pb-2">
-                            <div class="float-end">
-                                <a href="javascript:void(0);" class="link-secondary">All Logout</a>
-                            </div>
-                            <h5 class="card-title">Login History</h5>
-                        </div>
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="flex-shrink-0 avatar-sm">
-                                <div class="avatar-title bg-light text-primary rounded-3 fs-18">
-                                    <i class="ri-smartphone-line"></i>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h6>iPhone 12 Pro</h6>
-                                <p class="text-muted mb-0">Los Angeles, United States - March 16 at
-                                    2:47PM</p>
-                            </div>
-                            <div>
-                                <a href="javascript:void(0);" class="link-secondary">Logout</a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="flex-shrink-0 avatar-sm">
-                                <div class="avatar-title bg-light text-primary rounded-3 fs-18">
-                                    <i class="ri-tablet-line"></i>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h6>Apple iPad Pro</h6>
-                                <p class="text-muted mb-0">Washington, United States - November 06
-                                    at 10:43AM</p>
-                            </div>
-                            <div>
-                                <a href="javascript:void(0);" class="link-secondary">Logout</a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="flex-shrink-0 avatar-sm">
-                                <div class="avatar-title bg-light text-primary rounded-3 fs-18">
-                                    <i class="ri-smartphone-line"></i>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h6>Galaxy S21 Ultra 5G</h6>
-                                <p class="text-muted mb-0">Conneticut, United States - June 12 at
-                                    3:24PM</p>
-                            </div>
-                            <div>
-                                <a href="javascript:void(0);" class="link-secondary">Logout</a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 avatar-sm">
-                                <div class="avatar-title bg-light text-primary rounded-3 fs-18">
-                                    <i class="ri-macbook-line"></i>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h6>Dell Inspiron 14</h6>
-                                <p class="text-muted mb-0">Phoenix, United States - July 26 at
-                                    8:10AM</p>
-                            </div>
-                            <div>
-                                <a href="javascript:void(0);" class="link-secondary">Logout</a>
-                            </div>
-                        </div>
                     </div>
                     <!--end tab-pane-->
                     <div class="tab-pane" id="experience" role="tabpanel">
@@ -484,6 +349,49 @@
                                         Authentication</a>
                                 </div>
                             </div>
+                            <form action="javascript:void(0);">
+                                <div class="row g-2">
+                                    <div class="col-lg-4">
+                                        <div>
+                                            <label for="oldpasswordInput" class="form-label">Old
+                                                Password*</label>
+                                            <input type="password" class="form-control" id="oldpasswordInput" placeholder="Enter current password">
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-lg-4">
+                                        <div>
+                                            <label for="newpasswordInput" class="form-label">New
+                                                Password*</label>
+                                            <input type="password" class="form-control" id="newpasswordInput" placeholder="Enter new password">
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-lg-4">
+                                        <div>
+                                            <label for="confirmpasswordInput" class="form-label">Confirm
+                                                Password*</label>
+                                            <input type="password" class="form-control" id="confirmpasswordInput" placeholder="Confirm password">
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <a href="javascript:void(0);" class="link-primary text-decoration-underline">Forgot
+                                                Password ?</a>
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-lg-12">
+                                        <div class="text-end">
+                                            <button type="submit" class="btn btn-primary">Change
+                                                Password</button>
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </form>
                             <div class="d-flex flex-column flex-sm-row mb-4 mb-sm-0 mt-2">
                                 <div class="flex-grow-1">
                                     <h6 class="fs-14 mb-1">Secondary Verification</h6>
@@ -612,6 +520,7 @@
 </div>
 @endsection
 @push('js')
+    <script src="{{ url('backend/assets/js/jquery-3.6.0.min.js') }}"></script>
     <!-- profile-setting init js -->
     <script src="{{ url('backend/assets/js/pages/profile-setting.init.js') }}"></script>
     <script>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\ProviderController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Backend\TemplateController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProfileController;
@@ -54,6 +55,7 @@ Route::middleware(['auth', 'verify'])->group(function () {
     Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('backend.dashboard');
     Route::get('admin/users', [UserController::class, 'index'])->name('users.index');
     Route::resource('admin/setup/roles', RoleController::class);
+    Route::resource('admin/templates', TemplateController::class);
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('frontend.profile');
 });
