@@ -10,6 +10,9 @@
     <meta name="description" content="Your description" />
     <meta name="author" content="Your name" />
 
+    <!-- Favicon  -->
+    <link rel="icon" href="images/favicon.png') }}" />
+
     <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
     <meta property="og:site_name" content="" />
     <!-- website name -->
@@ -36,8 +39,7 @@
     <link href="{{ asset('frontend/css/swiper.css') }}" rel="stylesheet" />
     <link href="{{ asset('frontend/css/styles.css') }}" rel="stylesheet" />
 
-    <!-- Favicon  -->
-    <link rel="icon" href="images/favicon.png') }}" />
+    @livewireStyles
   </head>
   <body data-bs-spy="scroll" data-bs-target="#navbarExample">
     <!-- Navigation -->
@@ -187,91 +189,7 @@
     </div>
     <!-- end of cards-1 -->
 
-    <!-- Details Modal -->
-    <div
-      id="staticBackdrop"
-      class="modal fade"
-      tabindex="-1"
-      aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="row">
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"></button>
-            <div class="col-lg-8">
-              <div class="image-container">
-                <img
-                  class="img-fluid"
-                  src="{{ asset('frontend/images/details-modal.jpg') }}"
-                  alt="alternative" />
-              </div>
-              <!-- end of image-container -->
-            </div>
-            <!-- end of col -->
-            <div class="col-lg-4">
-              <h3>Goals Setting</h3>
-              <hr />
-              <p>
-                In gravida at nunc sodales pretium. Vivamus semper, odio vitae
-                mattis auctor, elit elit semper magna ac tum nico vela spider
-              </p>
-              <h4>User Feedback</h4>
-              <p>
-                Sapien vitae eros. Praesent ut erat a tellus posuere nisi more
-                thico cursus pharetra finibus posuere nisi. Vivamus feugiat
-              </p>
-              <ul class="list-unstyled li-space-lg">
-                <li class="d-flex">
-                  <i class="fas fa-chevron-right"></i>
-                  <div class="flex-grow-1">
-                    Tincidunt sem vel brita bet mala
-                  </div>
-                </li>
-                <li class="d-flex">
-                  <i class="fas fa-chevron-right"></i>
-                  <div class="flex-grow-1">
-                    Sapien condimentum sacoz sil necr
-                  </div>
-                </li>
-                <li class="d-flex">
-                  <i class="fas fa-chevron-right"></i>
-                  <div class="flex-grow-1">
-                    Fusce interdum nec ravon fro urna
-                  </div>
-                </li>
-                <li class="d-flex">
-                  <i class="fas fa-chevron-right"></i>
-                  <div class="flex-grow-1">
-                    Integer pulvinar biolot bat tortor
-                  </div>
-                </li>
-                <li class="d-flex">
-                  <i class="fas fa-chevron-right"></i>
-                  <div class="flex-grow-1">
-                    Id ultricies fringilla fangor raq trinit
-                  </div>
-                </li>
-              </ul>
-              <a id="modalCtaBtn" class="btn-solid-reg" href="#">Details</a>
-              <button
-                type="button"
-                class="btn-outline-reg"
-                data-bs-dismiss="modal">
-                Close
-              </button>
-            </div>
-            <!-- end of col -->
-          </div>
-          <!-- end of row -->
-        </div>
-        <!-- end of modal-content -->
-      </div>
-      <!-- end of modal-dialog -->
-    </div>
-    <!-- end of modal -->
+    
     <!-- Projects -->
     <div id="showcase" class="filter bg-gray">
       <div class="container">
@@ -286,31 +204,7 @@
           <!-- end of col -->
         </div>
         <!-- end of row -->
-        <div class="row">
-          <div class="col-lg-12">
-            <!-- end of button group -->
-            <div class="grid">
-              <div
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
-                class="element-item development">
-                <a href="javascript:void(0)">
-                  <img
-                    class="img-fluid"
-                    src="{{ asset('frontend/images/project-1.jpg') }}"
-                    alt="alternative" />
-                  <p>
-                    <strong>Online banking</strong> - pellentesque tincidunt leo
-                    eu laoreedt integer quis vanos compren
-                  </p>
-                </a>
-              </div>
-            </div>
-            <!-- end of grid -->
-            <!-- end of filter -->
-          </div>
-          <!-- end of col -->
-        </div>
+        <livewire:frontend.template>
         <!-- end of row -->
       </div>
       <!-- end of container -->
@@ -418,5 +312,7 @@
     <!-- Isotope for filter -->
     <script src="{{ asset('frontend/js/scripts.js') }}"></script>
     <!-- Custom scripts -->
+    
+    @livewireScripts
   </body>
 </html>

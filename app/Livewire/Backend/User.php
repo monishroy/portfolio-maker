@@ -125,7 +125,7 @@ class User extends Component
 
         $this->resetInput();
 
-        session()->flash('succes', 'User Delete Successfully');
+        session()->flash('success', 'User Delete Successfully');
     }
 
     public function closeModal()
