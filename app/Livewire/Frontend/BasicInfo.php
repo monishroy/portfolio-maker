@@ -10,9 +10,9 @@ use Livewire\Component;
 class BasicInfo extends Component
 {
     #[Rule([
-        'first_name' => ['required', 'max:255'],
+        'first_name' => ['required'],
         'last_name' => ['required'],
-        'phone' => ['required', 'number'],
+        'phone' => ['required', 'numeric'],
         'email' => ['required', 'email:filter'],
         'username' => ['required', 'alpha_dash', 'min:4'],
         'designation' => ['required', 'max:45'],
@@ -28,10 +28,10 @@ class BasicInfo extends Component
         $this->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'phone' => 'required',
-            'email' => 'required',
+            'phone' => 'required|numeric',
+            'email' => 'required|email:filter',
             'username' => 'required|alpha_dash|min:4|unique:users,username,' . $id,
-            'designation' => 'required',
+            'designation' => 'required|max:45',
             'bio' => 'required',
         ]);
 
@@ -45,7 +45,11 @@ class BasicInfo extends Component
             'bio' => $this->bio,
         ]);
 
-        session()->flash('success', 'Update Successfully');
+        if ($user) {
+            session()->flash('success', 'Update Successfully');
+        } else {
+            session()->flash('error', 'Something is Worng');
+        }
     }
 
     public function mount()

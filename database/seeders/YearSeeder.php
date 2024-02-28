@@ -2,20 +2,21 @@
 
 namespace Database\Seeders;
 
-use App\Models\TemplateImage;
+use App\Models\Year;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class TemplateImageSeeder extends Seeder
+class YearSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        TemplateImage::create([
-            'template_id' => '1',
-            'name' => '280220241709110066-1.png',
-        ]);
+        for ($i = 2001; $i <= 2024; $i++) {
+            Year::create([
+                'name' => $i,
+            ]);
+        }
     }
 }
