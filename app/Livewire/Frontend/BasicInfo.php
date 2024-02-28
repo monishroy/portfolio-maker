@@ -10,7 +10,13 @@ use Livewire\Component;
 class BasicInfo extends Component
 {
     #[Rule([
-        'first_name' => ['required', 'max:255', 'url'],
+        'first_name' => ['required', 'max:255'],
+        'last_name' => ['required'],
+        'phone' => ['required', 'number'],
+        'email' => ['required', 'email:filter'],
+        'username' => ['required', 'alpha_dash', 'min:4'],
+        'designation' => ['required', 'max:45'],
+        'bio' => ['required'],
     ])]
 
     public $id, $first_name, $last_name, $phone, $email, $username, $designation, $bio;
@@ -24,7 +30,7 @@ class BasicInfo extends Component
             'last_name' => 'required',
             'phone' => 'required',
             'email' => 'required',
-            'username' => 'required|unique:users,username,' . $id,
+            'username' => 'required|alpha_dash|min:4|unique:users,username,' . $id,
             'designation' => 'required',
             'bio' => 'required',
         ]);
@@ -42,9 +48,8 @@ class BasicInfo extends Component
         session()->flash('success', 'Update Successfully');
     }
 
-    public function render()
+    public function mount()
     {
-
         $user = Auth::user();
 
         $this->first_name = $user->fname;
@@ -54,6 +59,12 @@ class BasicInfo extends Component
         $this->username = $user->username;
         $this->designation = $user->designation;
         $this->bio = $user->bio;
+    }
+
+    public function render()
+    {
+
+
 
         return view('livewire.frontend.basic-info');
     }

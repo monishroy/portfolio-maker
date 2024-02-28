@@ -83,7 +83,7 @@
                     </div>
                     <!-- end card -->
                     <div class="text-end mb-3">
-                        <button type="submit" class="btn btn-primary w-sm">Submit</button>
+                        <button type="submit" class="btn btn-primary w-sm">Update</button>
                     </div>
                 </div>
             </div>
