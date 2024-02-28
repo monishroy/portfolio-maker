@@ -27,6 +27,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#gallery" role="tab">
+                            <i class="far fa-envelope"></i>
+                            Gallery
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="tab" href="#privacy" role="tab">
                             <i class="far fa-envelope"></i>
                             Privacy Policy
@@ -41,7 +47,6 @@
                         <livewire:frontend.basic-info>
 
                     </div>
-                    <!--end tab-pane-->
                     <div class="tab-pane" id="experience" role="tabpanel">
 
                         <livewire:frontend.experience>
@@ -52,7 +57,11 @@
                         <livewire:frontend.education>
 
                     </div>
-                    <!--end tab-pane-->
+                    <div class="tab-pane" id="gallery" role="tabpanel">
+
+                        <livewire:frontend.gallery>
+
+                    </div>
                     <div class="tab-pane" id="privacy" role="tabpanel">
 
                         <livewire:frontend.privacy>

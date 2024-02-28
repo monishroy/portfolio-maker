@@ -15,7 +15,7 @@
                             <a href="{{ route('templates.edit', $template->id) }}" class="btn btn-sm btn-info me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                                 <i class="ri-pencil-fill align-bottom"></i>
                             </a>
-                            <button class="btn btn-sm btn-danger" wire:click="delete({{ $template->id }})" data-bs-toggle="modal"  data-bs-target="#deleteModel"  data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                            <button class="btn btn-sm btn-danger" wire:click="delete({{ $template->id }})" data-bs-toggle="modal"  data-bs-target="#deleteModal"  data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
                                 <i class="bx bx-trash "></i>
                             </button>
                         </div>

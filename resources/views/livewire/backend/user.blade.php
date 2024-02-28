@@ -295,7 +295,7 @@
                                         </button>
                                     @endcan
                                     @can('delete user')
-                                        <button class="btn btn-sm btn-soft-danger" wire:click="delete({{$user->id}})" data-bs-toggle="modal"  data-bs-target="#deleteModel"  data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                                        <button class="btn btn-sm btn-soft-danger" wire:click="delete({{$user->id}})" data-bs-toggle="modal"  data-bs-target="#deleteModal"  data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
                                             <i class="bx bx-trash align-bottom"></i>
                                         </button>
                                     @endcan

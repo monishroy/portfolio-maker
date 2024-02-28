@@ -1,5 +1,5 @@
 {{-- Delete Modal  --}}
-<div wire:ignore.self class="modal fade zoomIn" id="deleteModel" tabindex="-1" aria-hidden="true">
+<div wire:ignore.self class="modal fade zoomIn" id="deleteModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
