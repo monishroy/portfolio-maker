@@ -33,6 +33,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#language" role="tab">
+                            <i class="far fa-envelope"></i>
+                            Languages
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="tab" href="#privacy" role="tab">
                             <i class="far fa-envelope"></i>
                             Privacy Policy
@@ -60,6 +66,11 @@
                     <div class="tab-pane" id="gallery" role="tabpanel">
 
                         <livewire:frontend.gallery>
+
+                    </div>
+                    <div class="tab-pane" id="language" role="tabpanel">
+
+                        <livewire:frontend.language>
 
                     </div>
                     <div class="tab-pane" id="privacy" role="tabpanel">

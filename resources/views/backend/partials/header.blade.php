@@ -380,7 +380,7 @@
                                     </div>
                                 </div>
                             @else
-                            <img class="rounded-circle header-profile-user" src="{{ asset('storage/users/'.Auth::user()->image) }}" alt="Header Avatar">
+                            <img class="rounded-circle header-profile-user" src="{{ asset('storage/users/'.Auth::user()->id.'/'.Auth::user()->image) }}" alt="Header Avatar">
                             @endif
                             <span class="text-start ms-xl-2">
                                 <span class="d-none d-xl-inline-block ms-1 fw-semibold user-name-text">{{ Auth::user()->fname.' '.Auth::user()->lname }}</span>
