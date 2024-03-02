@@ -92,27 +92,6 @@
     <script>
         $(document).ready(function() {
 
-            // Category Dropdown
-            $('#category-dropdown').on('change', function() {
-                var categoryId = $(this).val();
-                
-                $('#sub-category-dropdown').html('');
-                $.ajax({
-                url: '/fetch/sub_categories',
-                method: 'POST',
-                dataType: 'json',
-                data:{category_id: categoryId,_token:"{{ csrf_token() }}"},
-                success: function(response) {
-                    
-                    $('#sub-category-dropdown').html('<option value="">Select Sub Category</option>');
-                    $.each(response.sub_categories,function(index, val){
-                        $('#sub-category-dropdown').append('<option value="'+val.id+'">'+val.name+'</option>')
-                    });
-                }
-                });
-            });
-
-            //Product Image Show
             // Function to handle file input change event
             $('#image-input').change(function() {
                 // Clear existing previews
