@@ -16,6 +16,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset('frontend/temp1/css/styles.css') }}" rel="stylesheet" />
+        @livewireStyles
     </head>
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
@@ -214,8 +215,7 @@
                     </section>
                     @endif
                     <!-- Education Section-->
-                    @if (!empty($educations))
-                    <section>
+                    <div>
                         <h2 class="text-secondary fw-bolder mb-4">Education</h2>
                         @foreach ($educations as $education)
                         <div class="card shadow border-0 rounded-4 mb-5">
@@ -237,9 +237,7 @@
                             </div>
                         </div>
                         @endforeach
-                        
-                    </section>
-                    @endif
+                    </div>
                     <!-- Divider-->
                     <div class="pb-5"></div>
                     <!-- Skills Section-->
@@ -379,6 +377,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="{{ asset('frontend/temp1/js/scripts.js') }}"></script>
+        @livewireScripts
     </body>
 </html>

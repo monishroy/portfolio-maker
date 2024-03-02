@@ -80,10 +80,10 @@
               <a class="nav-link" href="#projects">How it Work ?</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#pricing">Pricing</a>
+              <a class="nav-link" href="{{ route('login') }}">Login</a>
             </li>
           </ul>
-          <span class="nav-item ms-4">
+          <span class="nav-item">
             <a class="btn-solid-sm" href="{{ route('register') }}">Get Started</a>
           </span>
         </div>

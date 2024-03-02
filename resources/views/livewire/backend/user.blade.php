@@ -255,6 +255,13 @@
                                         </div>
                                     </div>
                                 </div>
+                                @elseif ($user->provider == null)
+                                <div class="d-flex align-items-center">
+                                    <div style="padding: 1px" class="flex-shrink-0 border border-2
+                                    @if ($user && $user->last_activity >= now()->subMinutes(1)) border-success @else @endif">
+                                        <img src="{{ asset('storage/users/'.$user->id.'/'.$user->image) }}" alt="user image" class="img-fluid avatar-xs">
+                                    </div>
+                                </div>
                                 @else
                                 <div class="d-flex align-items-center">
                                     <div style="padding: 1px" class="flex-shrink-0 border border-2

@@ -58,6 +58,7 @@ Route::middleware(['auth', 'verify'])->group(function () {
     Route::resource('admin/templates', TemplateController::class);
     Route::get('admin/templates/{id}/delete-image', [TemplateController::class, 'image_delete'])->name('template.image.delete');
 
+    Route::get('/dashboard', [ProfileController::class, 'dashboard'])->name('frontend.dashboard');
     Route::get('/profile', [ProfileController::class, 'index'])->name('frontend.profile');
 });
 

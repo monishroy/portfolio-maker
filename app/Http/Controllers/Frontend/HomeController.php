@@ -32,6 +32,8 @@ class HomeController extends Controller
             $data['languages'] = Language::where('user_id', $user->id)->get();
             $data['projects'] = Project::where('user_id', $user->id)->get();
 
+            $user->increment('views', 1);
+
             return view('frontend/' . $template->path . '/index', $data);
         } else {
             return back()->with('error', 'User Not Found');

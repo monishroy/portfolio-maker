@@ -24,6 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('role_id')->default(2);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone')->nullable();
+            $table->integer('views')->default(0);
             $table->string('password')->nullable();
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();

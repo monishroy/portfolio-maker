@@ -71,6 +71,10 @@ class RolePermissionSeeder extends Seeder
                 'name' => 'view navbar'
             ],
             [
+                'prefix' => 'header',
+                'name' => 'view settings'
+            ],
+            [
                 'prefix' => 'template',
                 'name' => 'view template'
             ],

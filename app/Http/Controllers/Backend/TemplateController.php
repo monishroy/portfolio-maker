@@ -11,6 +11,13 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class TemplateController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:view template'])->only('index');
+        $this->middleware(['permission:add template'])->only('create');
+        $this->middleware(['permission:edit template'])->only('edit');
+    }
+
     /**
      * Display a listing of the resource.
      */

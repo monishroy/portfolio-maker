@@ -17,7 +17,7 @@
                         <div class="">
                             {!! $description !!}
                         </div>
-                        <a id="modalCtaBtn" class="btn-solid-reg" href="#">Use</a>
+                        <button type="button" wire:click="set_template({{ $id }})" class="btn-solid-reg">Use</button>
                         <button type="button" class="btn-outline-reg" data-bs-dismiss="modal">View</button>
                     </div>
                     <!-- end of col -->

@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Auth;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -27,7 +28,16 @@ class Login extends Component
             if (Auth::user()->role_id == 1) {
                 return redirect()->route('backend.dashboard');
             } else {
-                return redirect()->route('frontend.profile');
+                if (session()->has('template.id')) {
+                    $template_id = session()->get('template.id');
+
+                    User::find(Auth::user()->id)->update([
+                        'template_id' => $template_id,
+                    ]);
+
+                    return redirect()->route('frontend.profile');
+                }
+                return redirect()->route('frontend.dashboard');
             }
         } else {
             return back()->with('error', 'Please enter valid details!');
