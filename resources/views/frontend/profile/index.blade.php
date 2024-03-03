@@ -24,6 +24,9 @@
 @section('content')
 
 <div class="row">
+    <div class="col-12">
+        <a href="{{ route('frontend.dashboard') }}" class="btn btn-primary mb-3">Dashboard</a>
+    </div>
     <div class="col-xxl-9">
         <div class="card">
             <div class="card-header">

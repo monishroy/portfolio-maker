@@ -84,23 +84,25 @@
         <div class="col-xl-4 col-md-12">
             <!-- card -->
             <div class="card card-animate">
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-                        <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Message</p>
+                <a href="{{ route('frontend.messages') }}">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1 overflow-hidden">
+                                <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Message</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="d-flex align-items-end justify-content-between mt-4">
-                        <div>
-                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="1">0</span> </h4>
+                        <div class="d-flex align-items-end justify-content-between mt-4">
+                            <div>
+                                <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ $total_message }}">0</span> </h4>
+                            </div>
+                            <div class="avatar-sm flex-shrink-0">
+                                <span class="avatar-title bg-primary-subtle rounded fs-3">
+                                    <i class="ri-message-2-line text-primary"></i>
+                                </span>
+                            </div>
                         </div>
-                        <div class="avatar-sm flex-shrink-0">
-                            <span class="avatar-title bg-primary-subtle rounded fs-3">
-                                <i class="ri-message-2-line text-primary"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div><!-- end card body -->
+                    </div><!-- end card body -->
+                </a>
             </div><!-- end card -->
         </div><!-- end col -->
     </div> <!-- end row-->

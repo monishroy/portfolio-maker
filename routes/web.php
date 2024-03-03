@@ -60,6 +60,7 @@ Route::middleware(['auth', 'verify'])->group(function () {
 
     Route::get('/dashboard', [ProfileController::class, 'dashboard'])->name('frontend.dashboard');
     Route::get('/profile', [ProfileController::class, 'index'])->name('frontend.profile');
+    Route::get('/messages', [ProfileController::class, 'messages'])->name('frontend.messages');
 });
 
 Route::get('/{username}', [HomeController::class, 'portfolio'])->name('portfolio');

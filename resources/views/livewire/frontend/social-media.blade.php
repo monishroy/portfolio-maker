@@ -81,7 +81,7 @@
                         <div class="d-flex">
                             <div class="flex-shrink-0 avatar-xs">
                                 <div class="avatar-title bg-primary-subtle text-primary rounded">
-                                    <i class="{{ $social->icon }}"></i>
+                                    <i class="{{ $social->icon }} fs-2"></i>
                                 </div>
                             </div>
                             <div class="flex-shrink-0 ms-2">

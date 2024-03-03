@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Frontend;
 
+use App\Models\Message;
 use App\Models\Template;
 use App\Models\TemplateImage;
 use App\Models\User;
@@ -49,6 +50,7 @@ class Dashboard extends Component
     public function render()
     {
         $data['templates'] = Template::all();
+        $data['total_message'] = Message::where('user_id', Auth::user()->id)->count();
 
         $user = Auth::user();
 

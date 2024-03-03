@@ -38,7 +38,24 @@
     <link href="{{ asset('frontend/css/fontawesome-all.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('frontend/css/swiper.css') }}" rel="stylesheet" />
     <link href="{{ asset('frontend/css/styles.css') }}" rel="stylesheet" />
+    <style>
+        ::-webkit-scrollbar {
+        width: 4px;
+        }
 
+        ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background: #979797;
+        border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+        background: #575757;
+        }
+    </style>
     @livewireStyles
   </head>
   <body data-bs-spy="scroll" data-bs-target="#navbarExample">
@@ -222,31 +239,25 @@
             <h4>Millions of users trust us with their link for portfolio</h4>
             <div class="social-container">
               <span class="fa-stack">
-                <a href="#your-link">
+                <a href="https://www.facebook.com/monishroy010">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-facebook-f fa-stack-1x"></i>
                 </a>
               </span>
               <span class="fa-stack">
-                <a href="#your-link">
+                <a href="https://twitter.com/monishroy010">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-twitter fa-stack-1x"></i>
                 </a>
               </span>
               <span class="fa-stack">
-                <a href="#your-link">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-pinterest-p fa-stack-1x"></i>
-                </a>
-              </span>
-              <span class="fa-stack">
-                <a href="#your-link">
+                <a href="https://www.instagram.com/monishroy010/">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-instagram fa-stack-1x"></i>
                 </a>
               </span>
               <span class="fa-stack">
-                <a href="#your-link">
+                <a href="https://www.youtube.com/@monishroyprogrammer">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-youtube fa-stack-1x"></i>
                 </a>
@@ -269,14 +280,14 @@
         <div class="row">
           <div class="col-lg-6">
             <ul class="list-unstyled li-space-lg p-small">
-              <li><a href="terms.html">Terms & Conditions</a></li>
-              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="">Terms & Conditions</a></li>
+              <li><a href="">Privacy Policy</a></li>
             </ul>
           </div>
           <!-- end of col -->
           <div class="col-lg-3">
             <p class="p-small statement">
-              Copyright © <a href="#">Portfolio Maker</a>
+              Copyright © <a href="{{ url('') }}">Portfolio Maker</a>
             </p>
           </div>
           <!-- end of col -->

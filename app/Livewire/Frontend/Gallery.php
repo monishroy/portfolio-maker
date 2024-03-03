@@ -25,9 +25,15 @@ class Gallery extends Component
 
         $this->photo->storeAs("public/users/$id/", $filename);
 
-        User::find($id)->update([
+        $image = User::find($id)->update([
             'image' => $filename,
         ]);
+
+        if ($image) {
+            session()->flash('success', 'Saved Successfully');
+        } else {
+            session()->flash('error', 'Something is Worng');
+        }
     }
 
     public function resetInput()

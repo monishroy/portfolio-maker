@@ -1,5 +1,19 @@
 
 <div>
+    <div class="col-12">
+        @if (Session::has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong> {{Session::get('success')}} </strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+        @if (Session::has('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong> {{Session::get('error')}} </strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+    </div>
     <form wire:submit="store">
         <div class="row">
             <div class="col-md-6">
@@ -26,8 +40,6 @@
                 @endif
             </div>
         </div>
-    
-    
         @error('photo') <span class="error">{{ $message }}</span> @enderror
     
         <button class="btn btn-sm btn-primary" type="submit">

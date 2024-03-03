@@ -25,7 +25,7 @@
     <link href="{{ url('backend/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
     <style>
         ::-webkit-scrollbar {
-        width: 5px;
+        width: 4px;
         }
 
         ::-webkit-scrollbar-track {

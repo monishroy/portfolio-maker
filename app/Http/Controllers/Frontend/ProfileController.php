@@ -16,4 +16,9 @@ class ProfileController extends Controller
     {
         return view('frontend.profile.index');
     }
+
+    public function messages()
+    {
+        return view('frontend.message');
+    }
 }
