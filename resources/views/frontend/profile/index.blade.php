@@ -1,6 +1,26 @@
 @extends('backend.layouts.main')
 
 @section('title', 'Profile')
+@push('css')
+    <style>
+        #iframe::-webkit-scrollbar {
+        width: 5px;
+        }
+
+        #iframe::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        }
+
+        #iframe::-webkit-scrollbar-thumb {
+        background: #979797;
+        border-radius: 3px;
+        }
+
+        #iframe::-webkit-scrollbar-thumb:hover {
+        background: #575757;
+        }
+    </style>
+@endpush
 @section('content')
 
 <div class="row">
@@ -45,6 +65,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#social" role="tab">
+                            <i class="far fa-envelope"></i>
+                            Social
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="tab" href="#privacy" role="tab">
                             <i class="far fa-envelope"></i>
                             Privacy Policy
@@ -84,6 +110,11 @@
                         <livewire:frontend.project>
 
                     </div>
+                    <div class="tab-pane" id="social" role="tabpanel">
+
+                        <livewire:frontend.social-media>
+
+                    </div>
                     <div class="tab-pane" id="privacy" role="tabpanel">
 
                         <livewire:frontend.privacy>
@@ -113,50 +144,6 @@
                     </div>
                 </div>
                 <button type="button" class="btn btn-soft-primary waves-effect waves-light mt-3 w-100">Active</button>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex align-items-center mb-4">
-                    <div class="flex-grow-1">
-                        <h5 class="card-title mb-0">Social Media</h5>
-                    </div>
-                    <div class="flex-shrink-0">
-                        <a href="javascript:void(0);" class="badge bg-light text-secondary fs-12"><i class="ri-add-fill align-bottom me-1"></i> Add</a>
-                    </div>
-                </div>
-                <div class="mb-3 d-flex">
-                    <div class="avatar-xs d-block flex-shrink-0 me-3">
-                        <span class="avatar-title rounded-circle fs-16 bg-primary-subtle text-primary">
-                            <i class="ri-facebook-fill"></i>
-                        </span>
-                    </div>
-                    <input type="text" class="form-control" id="dribbleName" placeholder="@monishroy010">
-                </div>
-                <div class="mb-3 d-flex">
-                    <div class="avatar-xs d-block flex-shrink-0 me-3">
-                        <span class="avatar-title rounded-circle fs-16 bg-info-subtle text-info">
-                            <i class="ri-global-fill"></i>
-                        </span>
-                    </div>
-                    <input type="text" class="form-control" id="websiteInput" placeholder="www.monishroy.com">
-                </div>
-                <div class="mb-3 d-flex">
-                    <div class="avatar-xs d-block flex-shrink-0 me-3">
-                        <span class="avatar-title rounded-circle fs-16 bg-dark bg-opacity-25 text-dark">
-                            <i class="ri-github-fill"></i>
-                        </span>
-                    </div>
-                    <input type="email" class="form-control" id="gitUsername" placeholder="@monishroy">
-                </div>
-                <div class="d-flex">
-                    <div class="avatar-xs d-block flex-shrink-0 me-3">
-                        <span class="avatar-title rounded-circle fs-16 bg-danger-subtle text-danger">
-                            <i class="ri-instagram-fill"></i>
-                        </span>
-                    </div>
-                    <input type="text" class="form-control" id="pinterestName" placeholder="@monishroy010">
-                </div>
             </div>
         </div>
         <!--end card-->

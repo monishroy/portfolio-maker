@@ -16,6 +16,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset('frontend/temp1/css/styles.css') }}" rel="stylesheet" />
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         @livewireStyles
     </head>
     <body class="d-flex flex-column h-100">
@@ -172,10 +173,9 @@
                                 <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">About Me</span></h2>
                                 <p class="text-muted">{{ $user_info->bio }}</p>
                                 <div class="d-flex justify-content-center fs-2 gap-4">
-                                    <a class="text-gradient" href="#!"><i class="bi bi-facebook"></i></a>
-                                    <a class="text-gradient" href="#!"><i class="bi bi-twitter"></i></a>
-                                    <a class="text-gradient" href="#!"><i class="bi bi-linkedin"></i></a>
-                                    <a class="text-gradient" href="#!"><i class="bi bi-github"></i></a>
+                                    @foreach ($social_medias as $social_media)
+                                    <a class="text-gradient" target="_blank" href="{{ $social_media->link }}"><i class='{{ $social_media->icon }} bx-lg'></i></a>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -190,13 +190,13 @@
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-11 col-xl-9 col-xxl-8">
                     <!-- Experience Section-->
-                    @if (!empty($experinces))
+                    @if (count($experinces) != 0)
                     <section>
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <h2 class="text-primary fw-bolder mb-0">Experience</h2>
                         </div>
+                        @foreach ($experinces as $key=>$experince)
                         <!-- Experience Card 1-->
-                        @foreach ($experinces as $experince)
                         <div class="card shadow border-0 rounded-4 mb-5">
                             <div class="card-body p-5">
                                 <div class="row align-items-center gx-5">
@@ -215,9 +215,10 @@
                     </section>
                     @endif
                     <!-- Education Section-->
+                    @if (count($educations) != 0)
                     <div>
                         <h2 class="text-secondary fw-bolder mb-4">Education</h2>
-                        @foreach ($educations as $education)
+                        @foreach ($educations as $key=>$education)
                         <div class="card shadow border-0 rounded-4 mb-5">
                             <div class="card-body p-5">
                                 <div class="row align-items-center gx-5">
@@ -238,10 +239,11 @@
                         </div>
                         @endforeach
                     </div>
+                    @endif
                     <!-- Divider-->
                     <div class="pb-5"></div>
                     <!-- Skills Section-->
-                    @if (!empty($languages))
+                    @if (count($languages) != 0)
                     <section>
                         <!-- Skillset Card-->
                         <div class="card shadow border-0 rounded-4 mb-5">
@@ -267,7 +269,7 @@
                 </div>
             </div>
         </div>
-        @if (!empty($projects))
+        @if (count($projects) != 0)
         <section class="py-5">
             <div class="container px-5 mb-5">
                 <div class="text-center mb-5">
@@ -378,6 +380,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="{{ asset('frontend/temp1/js/scripts.js') }}"></script>
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
         @livewireScripts
     </body>
 </html>

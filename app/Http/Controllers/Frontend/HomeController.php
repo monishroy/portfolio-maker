@@ -8,6 +8,7 @@ use App\Models\Experience;
 use App\Models\Language;
 use App\Models\Project;
 use App\Models\Skill;
+use App\Models\SocialMedia;
 use App\Models\Template;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -31,6 +32,7 @@ class HomeController extends Controller
             $data['educations'] = Education::where('user_id', $user->id)->get();
             $data['languages'] = Language::where('user_id', $user->id)->get();
             $data['projects'] = Project::where('user_id', $user->id)->get();
+            $data['social_medias'] = SocialMedia::where('user_id', $user->id)->get();
 
             $user->increment('views', 1);
 

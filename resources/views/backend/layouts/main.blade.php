@@ -23,6 +23,24 @@
     <link href="{{ url('backend/assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
     {{-- custom Css --}}
     <link href="{{ url('backend/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
+    <style>
+        ::-webkit-scrollbar {
+        width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background: #979797;
+        border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+        background: #575757;
+        }
+    </style>
     @livewireStyles
 </head>
 
