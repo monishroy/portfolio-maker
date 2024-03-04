@@ -61,8 +61,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-center">
-                            <p class="mb-0 text-light">
-                                Copyright &copy; <script>document.write(new Date().getFullYear())</script> Mnotion. Development <i class="mdi mdi-heart text-danger"></i> by Monish Roy
+                            <p class="mb-0 text-body">
+                                Copyright &copy; <script>document.write(new Date().getFullYear())</script> Portfolio. Development <i class="mdi mdi-heart text-danger"></i> by <a href="https://monishroy.com">Monish Roy</a>
                             </p>
                         </div>
                     </div>

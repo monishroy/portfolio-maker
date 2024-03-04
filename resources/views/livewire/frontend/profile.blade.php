@@ -19,6 +19,7 @@
             @else
             <button type="button" wire:click="deactive" class="btn btn-danger waves-effect waves-light mt-3 w-100">Dective</button>
             @endif
+            <a href="{{ url('').'/'.Auth::user()->username }}" target="_blank" class="btn btn-primary waves-effect waves-light mt-3 w-100">Visit</a>
         </div>
     </div>
 </div>

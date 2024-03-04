@@ -74,12 +74,12 @@
                 <div class="signin-other-title">
                     <h5 class="fs-13 mb-4 title text-muted">Create account with</h5>
                 </div>
-                <div>
+                {{-- <div>
                     <a href="auth/facebook/redirect"><button type="button" class="btn btn-soft-primary btn-icon waves-effect waves-light"><i class="ri-facebook-fill fs-16"></i></button></a>
                     <a href="auth/google/redirect"><button type="button" class="btn btn-soft-danger btn-icon waves-effect waves-light"><i class="ri-google-fill fs-16"></i></button></a>
                     <a href="auth/github/redirect"><button type="button" class="btn btn-soft-dark btn-icon waves-effect waves-light"><i class="ri-github-fill fs-16"></i></button></a>
-                    {{-- <a href="auth/twitter/redirect"><button type="button" class="btn btn-soft-info btn-icon waves-effect waves-light"><i class="ri-twitter-fill fs-16"></i></button></a> --}}
-                </div>
+                    <a href="auth/twitter/redirect"><button type="button" class="btn btn-soft-info btn-icon waves-effect waves-light"><i class="ri-twitter-fill fs-16"></i></button></a>
+                </div> --}}
             </div>
         </form>
     </div>

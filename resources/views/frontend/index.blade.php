@@ -94,7 +94,7 @@
               <a class="nav-link" href="#showcase">Showcase</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#projects">How it Work ?</a>
+              <a class="nav-link" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#howtowork">How it Work ?</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ route('login') }}">Login</a>
@@ -205,7 +205,22 @@
       <!-- end of container -->
     </div>
     <!-- end of cards-1 -->
-
+    <div id="howtowork" class="modal fade" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="row">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button>
+                    <!-- Ratio Video 16:9 -->
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/1y_kfWUCFDQ" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                </div>
+            <!-- end of row -->
+            </div>
+            <!-- end of modal-content -->
+        </div>
+      <!-- end of modal-dialog -->
+    </div>
     
     <!-- Projects -->
     <div id="showcase" class="filter bg-gray">

@@ -100,7 +100,7 @@ class RolePermissionSeeder extends Seeder
         $user->assignRole($role);
         Role::create(['name' => 'user']);
 
-        $user = User::find(2);
-        $user->assignRole(2);
+        // $user = User::find(2);
+        // $user->assignRole(2);
     }
 }
