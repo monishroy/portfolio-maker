@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -14,7 +15,11 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return view('frontend.profile.index');
+        if (Auth::user()->template_id != null) {
+            return view('frontend.profile.index');
+        } else {
+            return redirect()->route('frontend.dashboard');
+        }
     }
 
     public function messages()

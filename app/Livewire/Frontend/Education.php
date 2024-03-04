@@ -3,6 +3,7 @@
 namespace App\Livewire\Frontend;
 
 use App\Models\Education as ModelsEducation;
+use App\Models\User;
 use App\Models\Year;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -43,6 +44,15 @@ class Education extends Component
             ]
         );
 
+        $id = Auth::user()->id;
+
+        $education = ModelsEducation::where('user_id', $id)->get();
+
+        if (count($education) == 0) {
+            $user = User::find($id);
+            $user->increment('persentance', 5);
+        }
+
         foreach ($this->inputs as $item) {
 
             ModelsEducation::create([
@@ -68,6 +78,15 @@ class Education extends Component
     public function distroy()
     {
         ModelsEducation::find($this->id)->delete();
+
+        $id = Auth::user()->id;
+
+        $education = ModelsEducation::where('user_id', $id)->get();
+
+        if (count($education) == 0) {
+            $user = User::find($id);
+            $user->decrement('persentance', 5);
+        }
 
         $this->resetInput();
 

@@ -5,9 +5,12 @@ namespace App\Livewire\Frontend;
 use App\Models\Message as ModelsMessage;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Message extends Component
 {
+    use WithPagination;
+
     public $id, $search, $size = '10', $status;
 
     public function delete($id)

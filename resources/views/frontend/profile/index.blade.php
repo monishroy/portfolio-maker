@@ -131,24 +131,7 @@
     <!--end col-->
     <div class="col-xxl-3">
         <!--end card-->
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex align-items-center mb-5">
-                    <div class="flex-grow-1">
-                        <h5 class="card-title mb-0">Complete Your Profile</h5>
-                    </div>
-                    <div class="flex-shrink-0">
-                        <a href="javascript:void(0);" class="fs-5 text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Min 80% complete profile then active your portfolio"><i class="ri-information-line align-bottom me-1"></i></a>
-                    </div>
-                </div>
-                <div class="progress animated-progress custom-progress progress-label">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
-                        <div class="label">30%</div>
-                    </div>
-                </div>
-                <button type="button" class="btn btn-soft-primary waves-effect waves-light mt-3 w-100">Active</button>
-            </div>
-        </div>
+        <livewire:frontend.profile>
         <!--end card-->
     </div>
     <!--end col-->

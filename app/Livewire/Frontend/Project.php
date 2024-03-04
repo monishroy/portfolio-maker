@@ -3,6 +3,7 @@
 namespace App\Livewire\Frontend;
 
 use App\Models\Project as ModelsProject;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -30,8 +31,14 @@ class Project extends Component
 
         $id = Auth::user()->id;
 
-        $filename = date('dmY') . time() . "." . $this->image->getClientOriginalExtension();
+        $project = ModelsProject::where('user_id', $id)->get();
 
+        if (count($project) == 0) {
+            $user = User::find($id);
+            $user->increment('persentance', 5);
+        }
+
+        $filename = date('dmY') . time() . "." . $this->image->getClientOriginalExtension();
         $this->image->storeAs("public/projects/", $filename);
 
         $project = ModelsProject::create([
@@ -48,6 +55,34 @@ class Project extends Component
         } else {
             session()->flash('error', 'Something is Worng');
         }
+    }
+
+    public function delete($id)
+    {
+        $this->id = $id;
+    }
+
+    public function distroy()
+    {
+        ModelsProject::find($this->id)->delete();
+
+        $id = Auth::user()->id;
+
+        $project = ModelsProject::where('user_id', $id)->get();
+
+        if (count($project) == 0) {
+            $user = User::find($id);
+            $user->decrement('persentance', 5);
+        }
+
+        $this->resetInput();
+
+        session()->flash('success', 'Project Delete Successfully');
+    }
+
+    public function closeModal()
+    {
+        $this->resetInput();
     }
 
     public function resetInput()

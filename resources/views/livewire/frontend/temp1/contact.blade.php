@@ -16,21 +16,27 @@
             <form wire:submit="store">
                 <!-- Name input-->
                 <div class="form-floating mb-3">
-                    <input class="form-control" wire:model.live="name" id="name" type="text" placeholder="Enter your name..." />
+                    <input class="form-control @error('name') is-invalid @enderror" wire:model.live="name" id="name" type="text" placeholder="Enter your name..." />
+                    @error('name')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                     <label for="name">Full name</label>
-                    <div class="invalid-feedback">A name is required.</div>
                 </div>
                 <!-- Email address input-->
                 <div class="form-floating mb-3">
-                    <input class="form-control" wire:model.live="email" id="email" type="email" placeholder="name@example.com"/>
+                    <input class="form-control @error('email') is-invalid @enderror" wire:model.live="email" id="email" type="email" placeholder="name@example.com"/>
+                    @error('email')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                     <label for="email">Email address</label>
-                    <div class="invalid-feedback">Email is not valid.</div>
                 </div>
                 <!-- Message input-->
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" wire:model.live="message" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem"></textarea>
+                    <textarea class="form-control @error('message') is-invalid @enderror" wire:model.live="message" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem"></textarea>
+                    @error('message')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                     <label for="message">Message</label>
-                    <div class="invalid-feedback">A message is required.</div>
                 </div>
                 <!-- Submit Button-->
                 <div class="d-grid">

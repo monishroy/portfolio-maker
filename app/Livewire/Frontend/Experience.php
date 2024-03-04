@@ -3,6 +3,7 @@
 namespace App\Livewire\Frontend;
 
 use App\Models\Experience as ModelsExperience;
+use App\Models\User;
 use App\Models\Year;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Rule;
@@ -44,6 +45,15 @@ class Experience extends Component
             ]
         );
 
+        $id = Auth::user()->id;
+
+        $experience = ModelsExperience::where('user_id', $id)->get();
+
+        if (count($experience) == 0) {
+            $user = User::find($id);
+            $user->increment('persentance', 5);
+        }
+
         foreach ($this->inputs as $item) {
 
             ModelsExperience::create([
@@ -68,7 +78,16 @@ class Experience extends Component
 
     public function distroy()
     {
-        $user = ModelsExperience::find($this->id)->delete();
+        ModelsExperience::find($this->id)->delete();
+
+        $id = Auth::user()->id;
+
+        $education = ModelsExperience::where('user_id', $id)->get();
+
+        if (count($education) == 0) {
+            $user = User::find($id);
+            $user->decrement('persentance', 5);
+        }
 
         $this->resetInput();
 

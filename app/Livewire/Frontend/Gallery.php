@@ -21,13 +21,20 @@ class Gallery extends Component
 
         $id = Auth::user()->id;
 
-        $filename = date('dmY') . time() . "." . $this->photo->getClientOriginalExtension();
+        $user = User::find($id);
 
+        if ($user->image == null) {
+            $user->increment('persentance', 10); //User update first Persentance Add
+        }
+
+        $filename = date('dmY') . time() . "." . $this->photo->getClientOriginalExtension();
         $this->photo->storeAs("public/users/$id/", $filename);
 
-        $image = User::find($id)->update([
+        $image = $user->update([
             'image' => $filename,
         ]);
+
+
 
         if ($image) {
             session()->flash('success', 'Saved Successfully');

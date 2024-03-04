@@ -35,7 +35,13 @@ class BasicInfo extends Component
             'bio' => 'required',
         ]);
 
-        $user = User::find($id)->update([
+        $user = User::find($id);
+
+        if ($user->phone == null) {
+            $user->increment('persentance', 20);
+        }
+
+        $user = $user->update([
             'fname' => $this->first_name,
             'lname' => $this->last_name,
             'phone' => $this->phone,

@@ -3,6 +3,7 @@
 namespace App\Livewire\Frontend;
 
 use App\Models\Language as ModelsLanguage;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -20,6 +21,15 @@ class Language extends Component
         $this->validate([
             'name' => 'required',
         ]);
+
+        $id = Auth::user()->id;
+
+        $language = ModelsLanguage::where('user_id', $id)->get();
+
+        if (count($language) == 0) {
+            $user = User::find($id);
+            $user->increment('persentance', 10);
+        }
 
         $skill = ModelsLanguage::create([
             'name' => $this->name,
@@ -43,6 +53,15 @@ class Language extends Component
     public function distroy()
     {
         ModelsLanguage::find($this->id)->delete();
+
+        $id = Auth::user()->id;
+
+        $language = ModelsLanguage::where('user_id', $id)->get();
+
+        if (count($language) == 0) {
+            $user = User::find($id);
+            $user->decrement('persentance', 10);
+        }
 
         $this->resetInput();
 

@@ -25,6 +25,7 @@
                         </div>
                         <h5 class="text-center">Drop files here or click to upload.</h5>
                     </label>
+                    <p>select .png image to best photo</p>
                     @error('photo')<small class="text-danger form-text">{{$message}}</small>@enderror
                 </div>
                 {{-- <input type="file" wire:model="photo" class="from-control"> --}}

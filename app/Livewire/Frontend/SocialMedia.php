@@ -3,6 +3,7 @@
 namespace App\Livewire\Frontend;
 
 use App\Models\SocialMedia as ModelsSocialMedia;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -14,7 +15,7 @@ class SocialMedia extends Component
         'link' => ['required', 'url'],
     ])]
 
-    public $id, $social = '1', $link;
+    public $id, $social = 'bx bxl-facebook-square', $link;
 
     public function store()
     {
@@ -22,6 +23,15 @@ class SocialMedia extends Component
             'social' => 'required',
             'link' => 'required|url',
         ]);
+
+        $id = Auth::user()->id;
+
+        $social = ModelsSocialMedia::where('user_id', $id)->get();
+
+        if (count($social) == 0) {
+            $user = User::find($id);
+            $user->increment('persentance', 5);
+        }
 
         $social = ModelsSocialMedia::create([
             'user_id' => Auth::user()->id,
@@ -46,6 +56,15 @@ class SocialMedia extends Component
     public function distroy()
     {
         ModelsSocialMedia::find($this->id)->delete();
+
+        $id = Auth::user()->id;
+
+        $social = ModelsSocialMedia::where('user_id', $id)->get();
+
+        if (count($social) == 0) {
+            $user = User::find($id);
+            $user->decrement('persentance', 5);
+        }
 
         $this->resetInput();
 
